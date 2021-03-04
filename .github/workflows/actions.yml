@@ -2,6 +2,16 @@ name: Actions Workflow
 
 #on: [push]
 on:
+  push:
+    branches:
+      - master
+      - 'feature/*' # matches feature/featA, feature/featB. doesn't match feature/feat/a
+      - 'feature/**' # matches feature/feat/a
+      - '!featur/featC' # excludes featur/featC
+    tags:
+      - v1.*
+    paths:
+      - '**.js'
   #Trigger the workflow from an external source
   #POST https://api.github.com/repos/gcarmo-ciandt/github-actions-test/dispatches
   #HEADERS
