@@ -3,11 +3,19 @@ name: Actions Workflow
 #on: [push]
 on:
   #Trigger the workflow from an external source
-  #https://api.github.com/repos/gcarmo-ciandt/github-actions/test/dispatches
+  #POST https://api.github.com/repos/gcarmo-ciandt/github-actions-test/dispatches
   #HEADERS
   #Accept application/vnd.github.everest-preview+json
   #Content-Type application/json
+  #BODY
+  #{
+  #  "event_type": "build"
+  #}
+  #
+  #AUTHORIZATION
+  #Basic Github Token
   repository_dispatch:
+    types: [build]
   #schedule:
   #  - cron: "0/5 * * * *"
   #  - cron: "0/6 * * * *"
